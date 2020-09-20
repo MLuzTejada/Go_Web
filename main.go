@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 )
@@ -9,11 +8,11 @@ import (
 func main() {
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Add("Nombre", "Valor header")
-		fmt.Fprintf(w, "Hola Mundo")
+		http.Redirect(w, r, "https://www.facebook.com/", http.StatusMovedPermanently)
 	})
 
 	http.HandleFunc("/2", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "Hola Mundo, dos")
+		http.NotFound(w, r)
 	})
 
 	log.Fatal(http.ListenAndServe("localhost:3000", nil))
