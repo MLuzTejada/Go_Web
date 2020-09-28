@@ -1,1 +1,1 @@
-Desarrollo de curso para la creación de una API REST con Goland.
+Desarrollo de curso para la creación de una API REST con Golang.
